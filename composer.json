@@ -1,0 +1,35 @@
+{
+  "name": "glebred/search-multiselect-input",
+  "description": "Searchable multiple select input for Livewire Laravel 8",
+  "type": "library",
+  "keywords": [
+    "glebred",
+    "livewire-select",
+    "search"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Gleb Redko",
+      "email": "gleb@redko.ninja"
+    }
+  ],
+  "require": {
+    "php": "^7.3",
+    "illuminate/support": "^8.0",
+    "livewire/livewire": "^2.0"
+  },
+  "autoload": {
+    "psr-4":
+    {
+      "GlebRed\\SearchMultiselectInput\\": "src"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "GlebRed\\SearchMultiselectInput\\SearchMultiselectInputServiceProvider"
+      ]
+    }
+  }
+}
