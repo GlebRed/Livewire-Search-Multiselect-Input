@@ -60,7 +60,7 @@ class SearchMultiselectInput extends Component
 
     public function render()
     {
-        return view('components.input.search-multiselect-input');
+        return view('vendor.search_multiselect_input.components.search-multiselect-input');
     }
 
 }
