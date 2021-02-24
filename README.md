@@ -1,6 +1,6 @@
 # Livewire Searchable Multiselect Input
 
-Livewire component for searchable multiselect inputs
+Livewire component for searchable multiselect input with **dynamic** data source
 
 ### Preview
 
