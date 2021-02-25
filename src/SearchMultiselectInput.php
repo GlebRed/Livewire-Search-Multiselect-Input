@@ -19,6 +19,9 @@ abstract class SearchMultiselectInput extends Component
   public $data;
   public $selected_items = [];
 
+  //Write query using $query and set $data to some meaningful result
+  abstract public function updatedQuery();
+
 
   public function resetProps()
   {
@@ -36,9 +39,6 @@ abstract class SearchMultiselectInput extends Component
     }
   }
 
-  //Write query using $query and set $data to some meaningful result
-  abstract public function updatedQuery();
-
 
   public function addSelectedItem(Model $model)
   {
@@ -55,7 +55,9 @@ abstract class SearchMultiselectInput extends Component
     $this->resetProps();
   }
 
-  //Return view('your-component-name')
-  abstract function render();
+  public function render()
+  {
+    return view('search-multiselect-input::search-multiselect-input');
+  }
 
 }

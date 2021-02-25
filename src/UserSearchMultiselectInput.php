@@ -12,7 +12,7 @@ use Livewire\Component;
  * @property array $data
  * @property array $selected_items
  */
-class UserSearchMultiselectInput extends Component
+class UserSearchMultiselectInput extends SearchMultiselectInput
 {
 
   public $query = '';
@@ -58,9 +58,5 @@ class UserSearchMultiselectInput extends Component
     $this->resetProps();
   }
 
-  public function render()
-  {
-    return view('search-multiselect-input::search-multiselect-input');
-  }
 
 }
