@@ -33,8 +33,6 @@ class LivewireInputTest extends TestCase
   {
     $component = $this->createComponent();
 
-    $this->assertNotNull($component);
-
     $item1 = ['id' => '1', 'name' => $this->faker->name];
     $item2 = ['id' => '2', 'name' => $this->faker->name];
 
