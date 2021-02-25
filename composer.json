@@ -20,9 +20,13 @@
     "livewire/livewire": "^2.0"
   },
   "autoload": {
-    "psr-4":
-    {
+    "psr-4": {
       "GlebRed\\SearchMultiselectInput\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "GlebRed\\SearchMultiselectInput\\Tests\\": "tests"
     }
   },
   "extra": {
@@ -31,5 +35,13 @@
         "GlebRed\\SearchMultiselectInput\\SearchMultiselectInputServiceProvider"
       ]
     }
+  },
+  "require-dev": {
+    "orchestra/testbench": "^5.0|^6.0",
+    "phpunit/phpunit": "^8.0"
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit",
+    "test-f": "vendor/bin/phpunit --filter"
   }
 }

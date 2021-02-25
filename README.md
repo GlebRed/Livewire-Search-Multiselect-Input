@@ -48,7 +48,7 @@ class MyMultiInput extends SearchMultiselectInput
 }
 ```
 
-In this class, you must override the following methods to configure data sources. For instance, here I'm getting data from my User model
+In this class, you must implement the following methods to configure data sources. For instance, here I'm getting data from my User model
 ```php
 public function updatedQuery()
 {
@@ -69,6 +69,12 @@ public function addSelectedItem($user)
 
     $this->resetProps();
 }
+
+// Your component view
+public function render()
+{
+return view('my-multi-input');
+}
 ```
 
 To render the component in a view, just use the Livewire tag or include syntax
@@ -76,10 +82,6 @@ To render the component in a view, just use the Livewire tag or include syntax
  ```blade
  <livewire:my-multi-input></livewire:my-multi-input>
  ```
-
-### Testing
-
-// TODO 😬
 
 ### Advanced behavior
 
