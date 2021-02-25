@@ -22,6 +22,9 @@ abstract class SearchMultiselectInput extends Component
   //Write query using $query and set $data to some meaningful result
   abstract public function updatedQuery();
 
+  //Find your item and push the result into selected_items array
+  abstract public function addSelectedItem($user_id);
+
 
   public function resetProps()
   {
@@ -39,21 +42,6 @@ abstract class SearchMultiselectInput extends Component
     }
   }
 
-
-  public function addSelectedItem(Model $model)
-  {
-
-    $model = Model::findOrFail($model, ['id', 'name']);
-
-    if (!empty($this->selected_items)) {
-      if (!in_array($model['id'], array_column($this->selected_items, 'id'))) $this->selected_items[] = $model;
-    } else {
-      $this->selected_items[] = $model;
-    }
-
-
-    $this->resetProps();
-  }
 
   public function render()
   {

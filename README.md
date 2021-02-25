@@ -57,9 +57,9 @@ public function updatedQuery()
         ->toArray();
 }
 
-public function addSelectedItem($user)
+public function addSelectedItem($user_id)
 {
-    $user = User::findOrFail($user, ['id', 'name']);
+    $user = User::findOrFail($user_id, ['id', 'name']);
 
     if (!empty($this->selected_items)) {
         if (!in_array($user['id'], array_column($this->selected_items, 'id'))) $this->selected_items[] = $user;
@@ -70,11 +70,6 @@ public function addSelectedItem($user)
     $this->resetProps();
 }
 
-// Your component view
-public function render()
-{
-return view('my-multi-input');
-}
 ```
 
 To render the component in a view, just use the Livewire tag or include syntax
