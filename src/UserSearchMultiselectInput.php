@@ -53,6 +53,7 @@ class UserSearchMultiselectInput extends SearchMultiselectInput
       $this->selected_items[] = $user;
     }
 
+    $this->emit('participantsAdded', $this->selected_items);
 
     $this->resetProps();
   }

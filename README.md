@@ -67,6 +67,9 @@ public function addSelectedItem($user_id)
         $this->selected_items[] = $user;
     }
 
+    //Emit selected items to parent's participantsAdded($participants)
+    $this->emit('participantsAdded', $this->selected_items);
+
     $this->resetProps();
 }
 
