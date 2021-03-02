@@ -25,17 +25,6 @@ class UserSearchMultiselectInput extends SearchMultiselectInput
     $this->reset(['query', 'data']);
   }
 
-
-  public function removeSelectedItem($id)
-  {
-    foreach ($this->selected_items as $key => $item) {
-      if ($item['id'] == $id) {
-        unset($this->selected_items[$key]);
-        break;
-      }
-    }
-  }
-
   public function updatedQuery()
   {
     $this->data = User::where('name', 'like', '%' . $this->query . '%')
@@ -53,9 +42,21 @@ class UserSearchMultiselectInput extends SearchMultiselectInput
       $this->selected_items[] = $user;
     }
 
-    $this->emit('participantsAdded', $this->selected_items);
+    $this->emit('participantsChanged', $this->selected_items);
 
     $this->resetProps();
+  }
+
+  public function removeSelectedItem($id)
+  {
+    foreach ($this->selected_items as $key => $item) {
+      if ($item['id'] == $id) {
+        unset($this->selected_items[$key]);
+        break;
+      }
+    }
+
+    $this->emit('participantsChanged', $this->selected_items);
   }
 
 

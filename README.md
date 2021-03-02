@@ -67,10 +67,23 @@ public function addSelectedItem($user_id)
         $this->selected_items[] = $user;
     }
 
-    //Emit selected items to parent's participantsAdded($participants)
-    $this->emit('participantsAdded', $this->selected_items);
+    //Emit selected items to parent's participantsChanged($participants)
+    $this->emit('participantsChanged', $this->selected_items);
 
     $this->resetProps();
+}
+
+public function removeSelectedItem($id)
+{
+    foreach ($this->selected_items as $key => $item) {
+      if ($item['id'] == $id) {
+        unset($this->selected_items[$key]);
+        break;
+      }
+    }
+
+    //Emit selected items to parent's participantsChanged($participants)
+    $this->emit('participantsChanged', $this->selected_items);
 }
 
 ```
@@ -78,7 +91,20 @@ public function addSelectedItem($user_id)
 To render the component in a view, just use the Livewire tag or include syntax
 
  ```blade
- <livewire:my-multi-input></livewire:my-multi-input>
+ @livewire('my-multi-input')
+ ```
+Or if you want to pass parameters for an edit form then
+
+ ```blade
+ @livewire('my-multi-input', [$selected_items])
+ ```
+
+And then in your MyMultiInput.php
+```php
+public function mount($selected_items)
+{
+    $this->selected_items = $selected_items;
+}
  ```
 
 ### Advanced behavior

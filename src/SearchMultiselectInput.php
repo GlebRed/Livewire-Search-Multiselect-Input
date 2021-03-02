@@ -22,24 +22,15 @@ abstract class SearchMultiselectInput extends Component
   //Write query using $query and set $data to some meaningful result
   abstract public function updatedQuery();
 
-  //Find your item and push the result into selected_items array
+  //Find your item, push the result into selected_items array and emit updated $selected_items array to parent component
   abstract public function addSelectedItem($user_id);
 
+  //Remove item from $selected_items by $id and emit updated $selected_items array to parent component
+  abstract public function removeSelectedItem($id);
 
   public function resetProps()
   {
     $this->reset(['query', 'data']);
-  }
-
-
-  public function removeSelectedItem($id)
-  {
-    foreach ($this->selected_items as $key => $item) {
-      if ($item['id'] == $id) {
-        unset($this->selected_items[$key]);
-        break;
-      }
-    }
   }
 
 
