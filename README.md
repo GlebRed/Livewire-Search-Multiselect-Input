@@ -42,6 +42,8 @@ In the `MyMultiInput` class, instead of extending from the base Livewire `Compon
 extend from `SearchMultiselectInput` class. Also, remove the `render` method.
 
 ```php
+use GlebRed\SearchMultiselectInput\SearchMultiselectInput;
+
 class MyMultiInput extends SearchMultiselectInput
 {
     //
