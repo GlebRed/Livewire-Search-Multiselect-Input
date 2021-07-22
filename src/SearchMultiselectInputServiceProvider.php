@@ -14,12 +14,10 @@ class SearchMultiselectInputServiceProvider extends ServiceProvider
   public function boot()
   {
 
-    $this->loadViewsFrom(__DIR__.'/../resources/views', 'search-multiselect-input');
-
     if ($this->app->runningInConsole()) {
       // Publish views
       $this->publishes([
-          __DIR__.'/../resources/views' => resource_path('views/search-multiselect-input'),
+          __DIR__.'/../resources/views' => resource_path('views/vendor/search_multiselect_input'),
       ], 'views');
 
     }
